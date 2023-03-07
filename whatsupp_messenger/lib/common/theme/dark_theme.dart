@@ -9,6 +9,7 @@ ThemeData darkTheme(){
     backgroundColor: ColorList.backgroundDark,
     scaffoldBackgroundColor: ColorList.backgroundDark,
     extensions: [CustomThemeExtension.darkMode],
+
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
           backgroundColor: ColorList.greenDark,
@@ -16,6 +17,15 @@ ThemeData darkTheme(){
           splashFactory: NoSplash.splashFactory,
           elevation: 0,
           shadowColor: Colors.transparent
+      )
+    ),
+    bottomSheetTheme: const BottomSheetThemeData(
+      backgroundColor: ColorList.greyBackground,
+      modalBackgroundColor: ColorList.greyBackground,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(20),
+        )
       )
     )
   );

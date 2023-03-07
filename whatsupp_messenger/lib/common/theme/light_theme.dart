@@ -10,6 +10,7 @@ ThemeData lightTheme(){
       backgroundColor: ColorList.backgroundLight,
       scaffoldBackgroundColor: ColorList.backgroundLight,
       extensions: [CustomThemeExtension.lightMode],
+
       elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
               backgroundColor: ColorList.greenLight,
@@ -17,6 +18,15 @@ ThemeData lightTheme(){
               splashFactory: NoSplash.splashFactory,
               elevation: 0,
               shadowColor: Colors.transparent
+          )
+      ),
+      bottomSheetTheme: const BottomSheetThemeData(
+          backgroundColor: ColorList.backgroundLight,
+          modalBackgroundColor: ColorList.backgroundLight,
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.vertical(
+                top: Radius.circular(20),
+              )
           )
       )
   );

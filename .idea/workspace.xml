@@ -5,14 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75cbb97f-c01e-4cc5-8ca8-990599af9705" name="Changes" comment="Minor changes in welcome page">
-      <change afterPath="$PROJECT_DIR$/whatsupp_messenger/lib/common/extension/custom_theme_extension.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/whatsupp_messenger/lib/common/theme/dark_theme.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/whatsupp_messenger/lib/common/theme/light_theme.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/whatsupp_messenger/lib/common/utils/color_list.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/whatsupp_messenger/lib/common/widgets/custom_elevated_button.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/whatsupp_messenger/lib/common/widgets/language_button.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/whatsupp_messenger/lib/features/welcome/pages/welcome_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/whatsupp_messenger/lib/features/welcome/pages/welcome_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/whatsupp_messenger/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/whatsupp_messenger/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +32,7 @@
     <property name="com.android.tools.idea.emulator.zoom.toolbar.visible" value="false" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/AndroidStudioProjects/whatsupp_messenger" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="dart.settings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
