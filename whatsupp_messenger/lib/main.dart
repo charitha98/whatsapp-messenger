@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:whatsupp_messenger/common/theme/dark_theme.dart';
 import 'package:whatsupp_messenger/common/theme/light_theme.dart';
+import 'package:whatsupp_messenger/features/auth/pages/verification_page.dart';
 import 'package:whatsupp_messenger/features/welcome/pages/welcome_page.dart';
 
 import 'features/auth/pages/login_page.dart';
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
       theme: lightTheme(),
       darkTheme: darkTheme(),
       themeMode: ThemeMode.system,
-      home: const LoginPage(),
+      home: const VerificationPage(),
     );
   }
 }

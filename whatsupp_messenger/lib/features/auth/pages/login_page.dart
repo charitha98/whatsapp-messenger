@@ -1,9 +1,12 @@
+import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:whatsupp_messenger/common/extension/custom_theme_extension.dart';
+import 'package:whatsupp_messenger/common/helper/show_alert_dialog.dart';
 import 'package:whatsupp_messenger/common/widgets/custom_elevated_button.dart';
 import 'package:whatsupp_messenger/features/auth/widgets/custom_text_field.dart';
 
 import '../../../common/utils/color_list.dart';
+import '../../../common/widgets/custom_icon_button.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -13,10 +16,62 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-
   late TextEditingController countryNameController;
   late TextEditingController countryCodeController;
   late TextEditingController phoneNumberController;
+
+  sendCodeToPhone(){
+    final phone = phoneNumberController.text;
+    final name = countryNameController.text;
+
+    if(phone.isEmpty){
+      return showAlertDialog(
+        context: context,
+        message: 'Please enter your phone number',
+      );
+    }else if(phone.length < 9){
+      return showAlertDialog(
+        context: context,
+        message: "The phone number you entered is too short for the country: $name. \n\nInclude your area code if you haven't",
+      );
+    }else if(phone.length > 10){
+      return showAlertDialog(
+        context: context,
+        message: 'The phone number you entered is too long for the country: $name'
+      );
+    }
+
+  }
+
+  showCountryCodePicker() {
+    showCountryPicker(
+      context: context,
+      showPhoneCode: true,
+      favorite: ['ET'],
+      countryListTheme: CountryListThemeData(
+          bottomSheetHeight: 600,
+          backgroundColor: Theme.of(context).backgroundColor,
+          flagSize: 22,
+          borderRadius: BorderRadius.circular(20),
+          textStyle: TextStyle(color: context.theme.greyColor),
+          inputDecoration: InputDecoration(
+              labelStyle: TextStyle(color: context.theme.greyColor),
+              prefixIcon: const Icon(
+                Icons.language,
+                color: ColorList.greenDark,
+              ),
+              hintText: 'Search country code or name',
+              enabledBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(
+                      color: context.theme.greyColor!.withOpacity(0.2))),
+              focusedBorder: const UnderlineInputBorder(
+                  borderSide: BorderSide(color: ColorList.greenDark)))),
+      onSelect: (country) {
+        countryNameController.text = country.name;
+        countryCodeController.text = country.countryCode;
+      },
+    );
+  }
 
   @override
   void initState() {
@@ -42,54 +97,40 @@ class _LoginPageState extends State<LoginPage> {
         elevation: 0,
         title: Text(
           "Enter your phone number",
-          style: TextStyle(
-            color: context.theme.authAppbarTextColor
-          ),
+          style: TextStyle(color: context.theme.authAppbarTextColor),
         ),
         centerTitle: true,
         actions: [
-          IconButton(
-              onPressed: (){},
-              splashColor: Colors.transparent,
-              splashRadius: 22,
-              iconSize: 22,
-              padding: EdgeInsets.zero,
-              constraints: const BoxConstraints(minWidth: 40),
-              icon: Icon(
-                Icons.more_vert,
-                color: context.theme.greyColor,
-              )
+          CustomIconButton(
+            onTap: (){},
+            icon: Icons.more_vert,
           )
         ],
       ),
       body: Column(
         children: [
           Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: RichText(
               textAlign: TextAlign.center,
               text: TextSpan(
-                text: 'WhatsApp will need to verify your phone number.',
-                style: TextStyle(
-                  color: context.theme.greyColor,
-                  height: 1.5,
-                ),
-                children: [
-                  TextSpan(
-                    text: 'Whats my number?',
-                    style: TextStyle(
-                      color: context.theme.blueColor
-                    )
-                  )
-                ]
-              ),
+                  text: 'WhatsApp will need to verify your phone number.',
+                  style: TextStyle(
+                    color: context.theme.greyColor,
+                    height: 1.5,
+                  ),
+                  children: [
+                    TextSpan(
+                        text: 'Whats my number?',
+                        style: TextStyle(color: context.theme.blueColor))
+                  ]),
             ),
           ),
           const SizedBox(height: 10),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 50),
             child: CustomTextField(
-              onTap: (){},
+              onTap: showCountryCodePicker,
               controller: countryNameController,
               readOnly: true,
               suffixIcon: const Icon(
@@ -106,7 +147,7 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(
                   width: 70,
                   child: CustomTextField(
-                    onTap: (){},
+                    onTap: showCountryCodePicker,
                     controller: countryCodeController,
                     prefixText: '+',
                     readOnly: true,
@@ -127,18 +168,18 @@ class _LoginPageState extends State<LoginPage> {
           const SizedBox(height: 20),
           Text(
             'Carrier charges may apply',
-            style: TextStyle(
-              color: context.theme.greyColor
-            ),
+            style: TextStyle(color: context.theme.greyColor),
           )
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: CustomElevatedButton(
-        onPressed: (){},
+        onPressed: sendCodeToPhone,
         text: 'NEXT',
         buttonWidth: 90,
       ),
     );
   }
 }
+
+

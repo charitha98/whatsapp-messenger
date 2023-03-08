@@ -3,7 +3,7 @@ import 'package:whatsupp_messenger/common/extension/custom_theme_extension.dart'
 
 import '../../../common/utils/color_list.dart';
 import '../../../common/widgets/custom_elevated_button.dart';
-import '../../../common/widgets/language_button.dart';
+import '../widgets/language_button.dart';
 import '../widgets/privacy_and_terms.dart';
 
 class WelcomePage extends StatelessWidget {

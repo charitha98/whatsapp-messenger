@@ -13,10 +13,11 @@ ThemeData lightTheme(){
       extensions: [CustomThemeExtension.lightMode],
 
       appBarTheme: const AppBarTheme(
-          systemOverlayStyle: SystemUiOverlayStyle(
-              statusBarColor: Colors.transparent,
-              statusBarIconBrightness: Brightness.dark
-          )
+        titleTextStyle: TextStyle(fontSize: 18),
+        systemOverlayStyle: SystemUiOverlayStyle(
+            statusBarColor: Colors.transparent,
+            statusBarIconBrightness: Brightness.dark
+        )
       ),
 
       elevatedButtonTheme: ElevatedButtonThemeData(
@@ -36,7 +37,13 @@ ThemeData lightTheme(){
                 top: Radius.circular(20),
               )
           )
-      )
+      ),
+    dialogBackgroundColor: ColorList.backgroundLight,
+    dialogTheme: DialogTheme(
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10)
+        )
+    ),
   );
 
 }
